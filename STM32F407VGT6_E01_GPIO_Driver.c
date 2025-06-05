@@ -91,6 +91,17 @@ void GPIO_PeriClockControl(GPIO_RegisterStruct *pGPIOx_Regis, uint8_t ENorDI){
 /*
  * Init and De-Init
  */
+/*************************************************************************
+ * @fn: GPIO_Init
+ *
+ * @brife: This function copies data from GPIOx configuration pin to GPIOx register
+ *
+ * @param[in]: GPIOx handle (GPIOx register, GPIOx configuration pin)
+ *
+ * @return: none
+ *
+ * @note: none
+ *************************************************************************/
 void GPIO_Init(GPIO_HandleStruct *pGPIO_Handle) {
 	uint32_t temp = 0; // temp register
 
