@@ -96,7 +96,7 @@ void GPIO_PeriClockControl(GPIO_RegisterStruct *pGPIOx_Regis, uint8_t ENorDI){
  *
  * @brife: This function copies data from GPIOx configuration pin to GPIOx register
  *
- * @param[in]: GPIOx handle (GPIOx register, GPIOx configuration pin)
+ * @param[in]: GPIOx handle pointer (GPIOx register pointer, GPIOx configuration structure pin)
  *
  * @return: none
  *
