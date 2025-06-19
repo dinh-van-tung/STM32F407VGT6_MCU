@@ -12,17 +12,17 @@
 #include "stm32f407xx.h"
 
 typedef struct {
-    volatile uint8_t GPIO_PinNumber;
-    volatile uint8_t GPIO_PinMode;
-    volatile uint8_t GPIO_PinOutSpeed;
-    volatile uint8_t GPIO_PinPuPdControl;
-    volatile uint8_t GPIO_PinOutType;
-    volatile uint8_t GPIO_PinAltFuncMode;
+	volatile uint8_t GPIO_PinNumber;
+	volatile uint8_t GPIO_PinMode;
+	volatile uint8_t GPIO_PinOutSpeed;
+	volatile uint8_t GPIO_PinPuPdControl;
+	volatile uint8_t GPIO_PinOutType;
+	volatile uint8_t GPIO_PinAltFuncMode;
 } GPIO_Config_t;
 
 typedef struct {
-    volatile GPIO_RegDef_t *pGPIOx;
-    volatile GPIO_Config_t GPIO_Config;
+	volatile GPIO_RegDef_t *pGPIOx;
+	volatile GPIO_Config_t GPIO_Config;
 } GPIO_Handle_t;
 
 #define GPIO_PIN_0 0
@@ -90,7 +90,7 @@ uint8_t GPIO_ReadInputPin(volatile GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 uint16_t GPIO_ReadInputPort(volatile GPIO_RegDef_t *pGPIOx);
 
 void GPIO_WriteOutputPin(volatile GPIO_RegDef_t *pGPIOx, uint8_t PinNumber,
-        uint8_t Value);
+		uint8_t Value);
 
 void GPIO_WriteOutputPort(volatile GPIO_RegDef_t *pGPIOx, uint16_t Value);
 
