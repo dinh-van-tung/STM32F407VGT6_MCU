@@ -12,18 +12,18 @@
 #include "stm32f407xx.h"
 
 typedef struct {
-    volatile uint8_t SPI_DeviceMode;
-    volatile uint8_t SPI_BusConfig;
-    volatile uint8_t SPI_DFF;
-    volatile uint8_t SPI_CPHA;
-    volatile uint8_t SPI_CPOL;
-    volatile uint8_t SPI_SSM;
-    volatile uint8_t SPI_SCLKSpeed;
+	volatile uint8_t SPI_DeviceMode;
+	volatile uint8_t SPI_BusConfig;
+	volatile uint8_t SPI_DFF;
+	volatile uint8_t SPI_CPHA;
+	volatile uint8_t SPI_CPOL;
+	volatile uint8_t SPI_SSM;
+	volatile uint8_t SPI_SCLKSpeed;
 } SPI_Config_t;
 
 typedef struct {
-    volatile SPI_RegDef_t *pSPIx;
-    volatile SPI_Config_t SPI_Config;
+	volatile SPI_RegDef_t *pSPIx;
+	volatile SPI_Config_t SPI_Config;
 } SPI_Handle_t;
 
 #define SPI_DEVICE_MODE_SLAVE 0
