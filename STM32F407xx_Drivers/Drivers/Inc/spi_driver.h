@@ -4,7 +4,6 @@
  * Author: Van Tung Dinh
  */
 
-
 #ifndef INC_SPI_DRIVER_H_
 #define INC_SPI_DRIVER_H_
 
