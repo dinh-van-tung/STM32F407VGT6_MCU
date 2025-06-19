@@ -72,11 +72,9 @@ void SPI_Init(volatile SPI_Handle_t *pSPI_Handle);
 
 void SPI_DeInit(volatile SPI_RegDef_t *pSPIx);
 
-void SPI_SendData(volatile SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer,
-        uint32_t LengthData);
+void SPI_SendData(volatile SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t LengthData);
 
-void SPI_ReceiveData(volatile SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer,
-        uint32_t LengthData);
+void SPI_ReceiveData(volatile SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t LengthData);
 
 void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t ENorDI);
 
