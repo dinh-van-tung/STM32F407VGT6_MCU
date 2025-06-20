@@ -1,5 +1,6 @@
-/*
+/**
  * gpio_driver.h
+ *
  * Created on: Jun 12, 2025
  * Author: Van Tung Dinh
  */
@@ -10,6 +11,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "stm32f407xx.h"
+
 
 /**
  * Name:                            GPIO configuration structure
@@ -27,6 +29,7 @@ typedef struct {
 	volatile uint8_t GPIO_PinAltFuncMode;
 } GPIO_Config_t;
 
+
 /**
  * Name:                            GPIO handle structure
  * Last reviewed and updated:       2025/06/20
@@ -38,6 +41,7 @@ typedef struct {
 	volatile GPIO_RegDef_t *pGPIOx;
 	volatile GPIO_Config_t GPIO_Config;
 } GPIO_Handle_t;
+
 
 /**
  * Name:                            GPIO pin number
@@ -63,6 +67,7 @@ typedef struct {
 #define GPIO_PIN_14 	14
 #define GPIO_PIN_15 	15
 
+
 /**
  * Name:                            GPIO pin mode
  * Last reviewed and updated:       2025/06/20
@@ -70,13 +75,14 @@ typedef struct {
  * Return type:                     None
  * Brief description:               None
  */
-#define GPIO_MODE_INT 					0
-#define GPIO_MODE_OUT 					1
+#define GPIO_MODE_INPUT 				0
+#define GPIO_MODE_OUTPUT 				1
 #define GPIO_MODE_ALTFUNC 				2
 #define GPIO_MODE_ANALOG 				3
 #define GPIO_MODE_INTERRUPT_FTRIG 		4
 #define GPIO_MODE_INTERRUPT_RTRIG 		5
 #define GPIO_MODE_INTERRUPT_RFTRIG 		6
+
 
 /**
  * Name:                            GPIO output type
@@ -87,6 +93,7 @@ typedef struct {
  */
 #define GPIO_OUT_TYPE_PUSHPULL 		0
 #define GPIO_OUT_TYPE_OPENDRAIN		1
+
 
 /**
  * Name:                            GPIO output speed
@@ -100,6 +107,7 @@ typedef struct {
 #define GPIO_OUT_SPEED_HIGH 		2
 #define GPIO_OUT_SPEED_VERYHIGH 	3
 
+
 /**
  * Name:                            GPIO pull-up / pull-down
  * Last reviewed and updated:       2025/06/20
@@ -110,6 +118,7 @@ typedef struct {
 #define GPIO_NOPULL 	0
 #define GPIO_PULLUP 	1
 #define GPIO_PULLDOWN 	2
+
 
 /**
  * Name:                            GPIO alternate function
@@ -134,6 +143,7 @@ typedef struct {
 #define GPIO_MODE_AF_13 	13
 #define GPIO_MODE_AF_14 	14
 #define GPIO_MODE_AF_15 	15
+
 
 void GPIO_PeriClockControl(volatile GPIO_RegDef_t *pGPIOx, uint8_t ENorDI);
 
