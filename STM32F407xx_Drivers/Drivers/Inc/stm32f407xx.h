@@ -1,5 +1,6 @@
-/*
+/**
  * stm32f407xx.h
+ *
  * Created on: Jun 12, 2025
  * Author: Van Tung Dinh
  */
@@ -9,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+
 
 /**
  * Name:                            System memory base addresses
@@ -31,6 +33,7 @@
 #define AHB2_BASE           0x50000000UL
 #define AHB3_BASE           0xA0000000UL
 
+
 /**
  * Name:                            AHB1 peripheral base addresses
  * Last reviewed and updated:       2025/06/19
@@ -49,6 +52,7 @@
 #define GPIOI_BASE      (AHB1_BASE + 0x2000)
 #define RCC_BASE        (AHB1_BASE + 0x3800)
 
+
 /**
  * Name:                            APB1 peripheral base addresses
  * Last reviewed and updated:       2025/06/19
@@ -66,6 +70,7 @@
 #define UART4_BASE       (APB1_BASE + 0x4C00)
 #define UART5_BASE       (APB1_BASE + 0x5000)
 
+
 /**
  * Name:                            APB2 peripheral base addresses
  * Last reviewed and updated:       2025/06/19
@@ -78,6 +83,7 @@
 #define USART6_BASE      (APB2_BASE + 0x1400)
 #define EXTI_BASE        (APB2_BASE + 0x3C00)
 #define SYSCFG_BASE      (APB2_BASE + 0x3800)
+
 
 /**
  * Name:                            NVIC register structure
@@ -102,6 +108,7 @@ typedef struct {
     volatile uint32_t STIR; 				/* Software Trigger Interrupt Register              - Base address: 0xE000EF00 */
 } NVIC_RegDef_t;
 #define NVIC ((volatile NVIC_RegDef_t*)NVIC_BASE)
+
 
 /**
  * Name:                            RCC register structure
@@ -144,6 +151,7 @@ typedef struct {
 } RCC_RegDef_t;
 #define RCC ((volatile RCC_RegDef_t*)RCC_BASE)
 
+
 /**
  * Name:                            SYSCFG register structure
  * Last reviewed and updated:       2025/06/20
@@ -159,6 +167,7 @@ typedef struct {
     volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 			*/
 } SYSCFG_RegDef_t;
 #define SYSCFG ((volatile SYSCFG_RegDef_t*)SYSCFG_BASE)
+
 
 /**
  * Name:                            EXTI register structure
@@ -176,6 +185,7 @@ typedef struct {
     volatile uint32_t PR; 			/* Pending register                           - Address offset: 0x14 */
 } EXTI_RegDef_t;
 #define EXTI ((volatile EXTI_RegDef_t*)EXTI_BASE)
+
 
 /**
  * Name:                            GPIO register structure
@@ -206,6 +216,7 @@ typedef struct {
 #define GPIOH ((volatile GPIO_RegDef_t*)GPIOH_BASE)
 #define GPIOI ((volatile GPIO_RegDef_t*)GPIOI_BASE)
 
+
 /**
  * Name:                            SPI register structure
  * Last reviewed and updated:       2025/06/20
@@ -228,6 +239,7 @@ typedef struct {
 #define SPI2 ((volatile SPI_RegDef_t*)SPI2_BASE)
 #define SPI3 ((volatile SPI_RegDef_t*)SPI3_BASE)
 
+
 /**
  * Name:                            GPIO_PORT_CODE
  * Last reviewed and updated:       2025/06/20
@@ -244,6 +256,7 @@ typedef struct {
                             (x == GPIOG)  ? 6 : \
                             (x == GPIOH)  ? 7 : \
                             (x == GPIOI)  ? 8 : 0)
+
 
 /**
  * Name:                            Reset the GPIOx peripheral (x = A, B, C, ...)
@@ -262,6 +275,7 @@ typedef struct {
 #define GPIOH_RESET() do { (RCC->AHB1RSTR |= (1U << 7)); (RCC->AHB1RSTR &= ~(1U << 7)); } while(0);
 #define GPIOI_RESET() do { (RCC->AHB1RSTR |= (1U << 8)); (RCC->AHB1RSTR &= ~(1U << 8)); } while(0);
 
+
 /**
  * Name:                            Reset the SPIx peripheral (x = 1, 2, 3, ...)
  * Last reviewed and updated:       2025/06/20
@@ -272,6 +286,7 @@ typedef struct {
 #define SPI1_RESET() do { (RCC->APB2RSTR |= (1U << 12)); (RCC->APB2RSTR &= ~(1U << 12)); } while(0);
 #define SPI2_RESET() do { (RCC->APB1RSTR |= (1U << 14)); (RCC->APB1RSTR &= ~(1U << 14)); } while(0);
 #define SPI3_RESET() do { (RCC->APB1RSTR |= (1U << 15)); (RCC->APB1RSTR &= ~(1U << 15)); } while(0);
+
 
 /**
  * Name:                            Enable the clock for GPIOx peripheral (x = A, B, C, ...)
@@ -290,6 +305,7 @@ typedef struct {
 #define GPIOH_PCLK_EN() (RCC->AHB1ENR |= (1U << 7))
 #define GPIOI_PCLK_EN() (RCC->AHB1ENR |= (1U << 8))
 
+
 /**
  * Name:                            Disable the clock for GPIOx peripheral (x = A, B, C, ..)
  * Last reviewed and updated:       2025/06/20
@@ -307,6 +323,7 @@ typedef struct {
 #define GPIOH_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 7))
 #define GPIOI_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 8))
 
+
 /**
  * Name:                            SPIx_PLCK_EN (x = 1, 2, 3, ...)
  * Last reviewed and updated:       2025/06/20
@@ -317,6 +334,7 @@ typedef struct {
 #define SPI1_PCLK_EN() (RCC->APB2ENR |= (1U << 12))
 #define SPI2_PCLK_EN() (RCC->APB1ENR |= (1U << 14))
 #define SPI3_PCLK_EN() (RCC->APB1ENR |= (1U << 15))
+
 
 /**
  * Name:                            SPIx peripheral clock enable (x = 1, 2, 3, ...)
@@ -329,6 +347,7 @@ typedef struct {
 #define SPI2_PCLK_DI() (RCC->APB1ENR &= ~(1U << 14))
 #define SPI3_PCLK_DI() (RCC->APB1ENR &= ~(1U << 15))
 
+
 /**
  * Name:                            SYSCFG peripheral clock enable
  * Last reviewed and updated:       2025/06/20
@@ -338,6 +357,7 @@ typedef struct {
  */
 #define SYSCFG_PCLK_EN() (RCC->APB2ENR |= (1U << 14))
 
+
 /**
  * Name:                            SYSCFG peripheral clock disable
  * Last reviewed and updated:       2025/06/20
@@ -346,6 +366,7 @@ typedef struct {
  * Brief description:               Disable the clock for SYSCFG peripheral
  */
 #define SYSCFG_PCLK_DI() (RCC->APB2ENR &= ~(1U << 14))
+
 
 /**
  * Name:                            Macro IRQ number
@@ -361,6 +382,7 @@ typedef struct {
 #define IRQ_NUMBER_EXTI_4 		10
 #define IRQ_NUMBER_EXTI_9_5 	23
 #define IRQ_NUMBER_EXTI_15_10 	40
+
 
 /**
  * Name:                            Macro NVIC IRQ Priority Number
@@ -386,6 +408,7 @@ typedef struct {
 #define NVIC_IRQ_PRIORITY_14 	14
 #define NVIC_IRQ_PRIORITY_15 	15
 
+
 /**
  * Name:                            Macro logic
  * Last reviewed and updated:       2025/06/20
@@ -401,6 +424,7 @@ typedef struct {
 #define LOW 			0
 #define FLAG_RESET 		0
 #define FLAG_SET 		1
+
 
 /**
  * Name:                            Macros for the bits of the SPIx_CR1 register (x = 1, 2, 3, ...)
@@ -424,6 +448,7 @@ typedef struct {
 #define SPI_CR1_BIDIOE 		14		/* Bit 14 		BIDIOE: 	Output enable in bidirectional mode	*/
 #define SPI_CR1_BIDIMODE 	15		/* Bit 15 		BIDIMODE:	Bidirectional data mode enable 		*/
 
+
 /**
  * Name:                            Macros for the bits of the SPIx_CR2 register (x = 1, 2, 3, ...)
  * Last reviewed and updated:       2025/06/20
@@ -438,6 +463,7 @@ typedef struct {
 #define SPI_CR2_ERRIE 		5		/* Bit 5 	ERRIE: 		Error interrupt enable 					*/
 #define SPI_CR2_RXNEIE 		6		/* Bit 6 	RXNEIE: 	RX buffer not empty interrupt enable	*/
 #define SPI_CR2_TXEIE 		7		/* Bit 7 	TXEIE: 		Tx buffer empty interrupt enable 		*/
+
 
 /**
  * Name:                            Macros for the bits of the SPIx_SR register (x = 1, 2, 3, ...)
@@ -455,6 +481,7 @@ typedef struct {
 #define SPI_SR_OVR 		6		/* Bit 6 	OVR: Overrun flag				*/
 #define SPI_SR_BSY 		7		/* Bit 7 	BSY: Busy flag					*/
 #define SPI_SR_FRE 		8		/* Bit 8 	FRE: Frame format error			*/
+
 
 #include "gpio_driver.h"
 #include "spi_driver.h"
