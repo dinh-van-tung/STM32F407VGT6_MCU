@@ -81,120 +81,120 @@
 
 /**
  * Name:                            NVIC register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t ISER[8]; 				/* Interrupt Set Enable Registers                   - Offset: 0x000–0x01C */
-    volatile uint32_t RESERVED0[24]; 		/* Reserved                                         - Offset: 0x020–0x07C */
-    volatile uint32_t ICER[8]; 				/* Interrupt Clear Enable Registers                 - Offset: 0x080–0x09C */
-    volatile uint32_t RESERVED1[24]; 		/* Reserved                                         - Offset: 0x0A0–0x0FC */
-    volatile uint32_t ISPR[8]; 				/* Interrupt Set Pending Registers                  - Offset: 0x100–0x11C */
-    volatile uint32_t RESERVED2[24]; 		/* Reserved                                         - Offset: 0x120–0x17C */
-    volatile uint32_t ICPR[8]; 				/* Interrupt Clear Pending Registers                - Offset: 0x180–0x19C */
-    volatile uint32_t RESERVED3[24]; 		/* Reserved                                         - Offset: 0x1A0–0x1FC */
-    volatile uint32_t IABR[8]; 				/* Interrupt Active Bit Registers                   - Offset: 0x200–0x21C */
-    volatile uint32_t RESERVED4[56];		/* Reserved                                         - Offset: 0x220–0x2FC */
-    volatile uint32_t IPR[60]; 				/* Interrupt Priority Registers (IPR0–IPR59)        - Offset: 0x300–0x3EF */
-    volatile uint32_t RESERVED5[644]; 		/* Reserved                                         - Offset: 0x3F0–0xEFF */
-    volatile uint32_t STIR; 				/* Software Trigger Interrupt Register              - Offset: 0xF00 */
+    volatile uint32_t ISER[8]; 				/* Interrupt Set Enable Registers                   - Base address: 0xE000E100 */
+    volatile uint32_t RESERVED0[24]; 		/* Reserved                                         - Base address: 0xE000E120 */
+    volatile uint32_t ICER[8]; 				/* Interrupt Clear Enable Registers                 - Base address: 0XE000E180 */
+    volatile uint32_t RESERVED1[24]; 		/* Reserved                                         - Base address: 0xE000E1A0 */
+    volatile uint32_t ISPR[8]; 				/* Interrupt Set Pending Registers                  - Base address: 0XE000E200 */
+    volatile uint32_t RESERVED2[24]; 		/* Reserved                                         - Base address: 0XE000E220 */
+    volatile uint32_t ICPR[8]; 				/* Interrupt Clear Pending Registers                - Base address: 0XE000E280 */
+    volatile uint32_t RESERVED3[24]; 		/* Reserved                                         - Base address: 0XE000E2A0 */
+    volatile uint32_t IABR[8]; 				/* Interrupt Active Bit Registers                   - Base address: 0xE000E300 */
+    volatile uint32_t RESERVED4[56];		/* Reserved                                         - Base address: 0XE000E320 */
+    volatile uint32_t IPR[60]; 				/* Interrupt Priority Registers (IPR0 – IPR59)		- Base address: 0xE000E400 */
+    volatile uint32_t RESERVED5[644]; 		/* Reserved                                         - Base address: 0XE000E4F0 */
+    volatile uint32_t STIR; 				/* Software Trigger Interrupt Register              - Base address: 0xE000EF00 */
 } NVIC_RegDef_t;
 #define NVIC ((volatile NVIC_RegDef_t*)NVIC_BASE)
 
 /**
  * Name:                            RCC register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t CR; 				/* Clock control register                           - Offset: 0x00 */
-    volatile uint32_t PLLCFGR; 			/* PLL configuration register                       - Offset: 0x04 */
-    volatile uint32_t CFGR; 			/* Clock configuration register                     - Offset: 0x08 */
-    volatile uint32_t CIR; 				/* Clock interrupt register                         - Offset: 0x0C */
-    volatile uint32_t AHB1RSTR; 		/* AHB1 peripheral reset register                   - Offset: 0x10 */
-    volatile uint32_t AHB2RSTR; 		/* AHB2 peripheral reset register                   - Offset: 0x14 */
-    volatile uint32_t AHB3RSTR; 		/* AHB3 peripheral reset register                   - Offset: 0x18 */
-    uint32_t RESERVED0; 				/* Reserved                                         - Offset: 0x1C */
-    volatile uint32_t APB1RSTR; 		/* APB1 peripheral reset register                   - Offset: 0x20 */
-    volatile uint32_t APB2RSTR; 		/* APB2 peripheral reset register                   - Offset: 0x24 */
-    uint32_t RESERVED1[2]; 				/* Reserved                                         - Offset: 0x28–0x2C */
-    volatile uint32_t AHB1ENR; 			/* AHB1 peripheral clock enable register            - Offset: 0x30 */
-    volatile uint32_t AHB2ENR; 			/* AHB2 peripheral clock enable register            - Offset: 0x34 */
-    volatile uint32_t AHB3ENR; 			/* AHB3 peripheral clock enable register            - Offset: 0x38 */
-    uint32_t RESERVED2; 				/* Reserved                                         - Offset: 0x3C */
-    volatile uint32_t APB1ENR; 			/* APB1 peripheral clock enable register            - Offset: 0x40 */
-    volatile uint32_t APB2ENR; 			/* APB2 peripheral clock enable register            - Offset: 0x44 */
-    uint32_t RESERVED3[2]; 				/* Reserved                                         - Offset: 0x48–0x4C */
-    volatile uint32_t AHB1LPENR; 		/* AHB1 low power enable register                   - Offset: 0x50 */
-    volatile uint32_t AHB2LPENR; 		/* AHB2 low power enable register                   - Offset: 0x54 */
-    volatile uint32_t AHB3LPENR; 		/* AHB3 low power enable register                   - Offset: 0x58 */
-    uint32_t RESERVED4; 				/* Reserved                                         - Offset: 0x5C */
-    volatile uint32_t APB1LPENR; 		/* APB1 low power enable register                   - Offset: 0x60 */
-    volatile uint32_t APB2LPENR; 		/* APB2 low power enable register                   - Offset: 0x64 */
-    uint32_t RESERVED5[2]; 				/* Reserved                                         - Offset: 0x68–0x6C */
-    volatile uint32_t BDCR; 			/* Backup domain control register                   - Offset: 0x70 */
-    volatile uint32_t CSR;				/* Clock control & status register                  - Offset: 0x74 */
-    uint32_t RESERVED6[2]; 				/* Reserved                                         - Offset: 0x78–0x7C */
-    volatile uint32_t SSCGR;			/* Spread spectrum clock generation register        - Offset: 0x80 */
-    volatile uint32_t PLLI2SCFGR;		/* PLLI2S configuration register                    - Offset: 0x84 */
+    volatile uint32_t CR; 				/* Clock control register                           - Address offset: 0x00 */
+    volatile uint32_t PLLCFGR; 			/* PLL configuration register                       - Address offset: 0x04 */
+    volatile uint32_t CFGR; 			/* Clock configuration register                     - Address offset: 0x08 */
+    volatile uint32_t CIR; 				/* Clock interrupt register                         - Address offset: 0x0C */
+    volatile uint32_t AHB1RSTR; 		/* AHB1 peripheral reset register                   - Address offset: 0x10 */
+    volatile uint32_t AHB2RSTR; 		/* AHB2 peripheral reset register                   - Address offset: 0x14 */
+    volatile uint32_t AHB3RSTR; 		/* AHB3 peripheral reset register                   - Address offset: 0x18 */
+    uint32_t RESERVED0; 				/* Reserved                                         - Address offset: 0x1C */
+    volatile uint32_t APB1RSTR; 		/* APB1 peripheral reset register                   - Address offset: 0x20 */
+    volatile uint32_t APB2RSTR; 		/* APB2 peripheral reset register                   - Address offset: 0x24 */
+    uint32_t RESERVED1[2]; 				/* Reserved                                         - Address offset: 0x28 – 0x2C */
+    volatile uint32_t AHB1ENR; 			/* AHB1 peripheral clock enable register            - Address offset: 0x30 */
+    volatile uint32_t AHB2ENR; 			/* AHB2 peripheral clock enable register            - Address offset: 0x34 */
+    volatile uint32_t AHB3ENR; 			/* AHB3 peripheral clock enable register            - Address offset: 0x38 */
+    uint32_t RESERVED2; 				/* Reserved                                         - Address offset: 0x3C */
+    volatile uint32_t APB1ENR; 			/* APB1 peripheral clock enable register            - Address offset: 0x40 */
+    volatile uint32_t APB2ENR; 			/* APB2 peripheral clock enable register            - Address offset: 0x44 */
+    uint32_t RESERVED3[2]; 				/* Reserved                                         - Address offset: 0x48 – 0x4C */
+    volatile uint32_t AHB1LPENR; 		/* AHB1 low power enable register                   - Address offset: 0x50 */
+    volatile uint32_t AHB2LPENR; 		/* AHB2 low power enable register                   - Address offset: 0x54 */
+    volatile uint32_t AHB3LPENR; 		/* AHB3 low power enable register                   - Address offset: 0x58 */
+    uint32_t RESERVED4; 				/* Reserved                                         - Address offset: 0x5C */
+    volatile uint32_t APB1LPENR; 		/* APB1 low power enable register                   - Address offset: 0x60 */
+    volatile uint32_t APB2LPENR; 		/* APB2 low power enable register                   - Address offset: 0x64 */
+    uint32_t RESERVED5[2]; 				/* Reserved                                         - Address offset: 0x68 – 0x6C */
+    volatile uint32_t BDCR; 			/* Backup domain control register                   - Address offset: 0x70 */
+    volatile uint32_t CSR;				/* Clock control & status register                  - Address offset: 0x74 */
+    uint32_t RESERVED6[2]; 				/* Reserved                                         - Address offset: 0x78 – 0x7C */
+    volatile uint32_t SSCGR;			/* Spread spectrum clock generation register        - Address offset: 0x80 */
+    volatile uint32_t PLLI2SCFGR;		/* PLLI2S configuration register                    - Address offset: 0x84 */
 } RCC_RegDef_t;
 #define RCC ((volatile RCC_RegDef_t*)RCC_BASE)
 
 /**
  * Name:                            SYSCFG register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Offset: 0x00 */
-    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Offset: 0x04 */
-    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Offset: 0x08–0x14 */
-    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Offset: 0x18–0x1C */
-    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Offset: 0x20 */
+    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Address offset: 0x00 */
+    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Address offset: 0x04 */
+    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Address offset: 0x08 – 0x14 */
+    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Address offset: 0x18 – 0x1C */
+    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 */
 } SYSCFG_RegDef_t;
 #define SYSCFG ((volatile SYSCFG_RegDef_t*)SYSCFG_BASE)
 
 /**
  * Name:                            EXTI register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t IMR; 			/* Interrupt mask register                    - Offset: 0x00 */
-    volatile uint32_t EMR; 			/* Event mask register                        - Offset: 0x04 */
-    volatile uint32_t RTSR; 		/* Rising trigger selection register          - Offset: 0x08 */
-    volatile uint32_t FTSR; 		/* Falling trigger selection register         - Offset: 0x0C */
-    volatile uint32_t SWIER;		/* Software interrupt event register          - Offset: 0x10 */
-    volatile uint32_t PR; 			/* Pending register                           - Offset: 0x14 */
+    volatile uint32_t IMR; 			/* Interrupt mask register                    - Address offset: 0x00 */
+    volatile uint32_t EMR; 			/* Event mask register                        - Address offset: 0x04 */
+    volatile uint32_t RTSR; 		/* Rising trigger selection register          - Address offset: 0x08 */
+    volatile uint32_t FTSR; 		/* Falling trigger selection register         - Address offset: 0x0C */
+    volatile uint32_t SWIER;		/* Software interrupt event register          - Address offset: 0x10 */
+    volatile uint32_t PR; 			/* Pending register                           - Address offset: 0x14 */
 } EXTI_RegDef_t;
 #define EXTI ((volatile EXTI_RegDef_t*)EXTI_BASE)
 
 /**
  * Name:                            GPIO register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t MODER; 			/* GPIO port mode register                              - Offset: 0x00 */
-    volatile uint32_t OTYPER; 			/* GPIO port output type register                       - Offset: 0x04 */
-    volatile uint32_t OSPEEDR;			/* GPIO port output speed register                      - Offset: 0x08 */
-    volatile uint32_t PUPDR; 			/* GPIO port pull-up/pull-down register                 - Offset: 0x0C */
-    volatile uint32_t IDR; 				/* GPIO port input data register                        - Offset: 0x10 */
-    volatile uint32_t ODR; 				/* GPIO port output data register                       - Offset: 0x14 */
-    volatile uint32_t BSRR; 			/* GPIO port bit set/reset register                     - Offset: 0x18 */
-    volatile uint32_t LCKR; 			/* GPIO port configuration lock register                - Offset: 0x1C */
-    volatile uint32_t AFRL; 			/* GPIO alternate function low register (0–7)           - Offset: 0x20 */
-    volatile uint32_t AFRH; 			/* GPIO alternate function high register (8–15)         - Offset: 0x24 */
+    volatile uint32_t MODER; 			/* GPIO port mode register                              - Address offset: 0x00 */
+    volatile uint32_t OTYPER; 			/* GPIO port output type register                       - Address offset: 0x04 */
+    volatile uint32_t OSPEEDR;			/* GPIO port output speed register                      - Address offset: 0x08 */
+    volatile uint32_t PUPDR; 			/* GPIO port pull-up/pull-down register                 - Address offset: 0x0C */
+    volatile uint32_t IDR; 				/* GPIO port input data register                        - Address offset: 0x10 */
+    volatile uint32_t ODR; 				/* GPIO port output data register                       - Address offset: 0x14 */
+    volatile uint32_t BSRR; 			/* GPIO port bit set/reset register                     - Address offset: 0x18 */
+    volatile uint32_t LCKR; 			/* GPIO port configuration lock register                - Address offset: 0x1C */
+    volatile uint32_t AFRL; 			/* GPIO alternate function low register (0–7)           - Address offset: 0x20 */
+    volatile uint32_t AFRH; 			/* GPIO alternate function high register (8–15)         - Address offset: 0x24 */
 } GPIO_RegDef_t;
 #define GPIOA ((volatile GPIO_RegDef_t*)GPIOA_BASE)
 #define GPIOB ((volatile GPIO_RegDef_t*)GPIOB_BASE)
@@ -208,21 +208,21 @@ typedef struct {
 
 /**
  * Name:                            SPI register structure
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t CR1; 				/* SPI control register 1                   - Offset: 0x00 */
-    volatile uint32_t CR2; 				/* SPI control register 2                   - Offset: 0x04 */
-    volatile uint32_t SR; 				/* SPI status register                      - Offset: 0x08 */
-    volatile uint32_t DR; 				/* SPI data register                        - Offset: 0x0C */
-    volatile uint32_t CRCPR;			/* SPI CRC polynomial register              - Offset: 0x10 */
-    volatile uint32_t RXCRCR; 			/* SPI RX CRC register                      - Offset: 0x14 */
-    volatile uint32_t TXCRCR; 			/* SPI TX CRC register                      - Offset: 0x18 */
-    volatile uint32_t I2SCFGR;			/* SPI_I2S configuration register           - Offset: 0x1C */
-    volatile uint32_t I2SPR; 			/* SPI_I2S prescaler register               - Offset: 0x20 */
+    volatile uint32_t CR1; 				/* SPI control register 1                   - Address offset: 0x00 */
+    volatile uint32_t CR2; 				/* SPI control register 2                   - Address offset: 0x04 */
+    volatile uint32_t SR; 				/* SPI status register                      - Address offset: 0x08 */
+    volatile uint32_t DR; 				/* SPI data register                        - Address offset: 0x0C */
+    volatile uint32_t CRCPR;			/* SPI CRC polynomial register              - Address offset: 0x10 */
+    volatile uint32_t RXCRCR; 			/* SPI RX CRC register                      - Address offset: 0x14 */
+    volatile uint32_t TXCRCR; 			/* SPI TX CRC register                      - Address offset: 0x18 */
+    volatile uint32_t I2SCFGR;			/* SPI_I2S configuration register           - Address offset: 0x1C */
+    volatile uint32_t I2SPR; 			/* SPI_I2S prescaler register               - Address offset: 0x20 */
 } SPI_RegDef_t;
 #define SPI1 ((volatile SPI_RegDef_t*)SPI1_BASE)
 #define SPI2 ((volatile SPI_RegDef_t*)SPI2_BASE)
@@ -230,7 +230,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO_PORT_CODE
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      1) x: a pointer to a structure of type GPIO
  * Return type:                     uint8_t
  * Brief description:               Returns the corresponding value for each GPIOx peripheral (x = A, B, C, ...)
@@ -246,11 +246,11 @@ typedef struct {
                             (x == GPIOI)  ? 8 : 0)
 
 /**
- * Name:                            GPIOx_RESET (x = A, B, C, ...)
- * Last reviewed and updated:       None
+ * Name:                            Reset the GPIOx peripheral (x = A, B, C, ...)
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
- * Brief description:               Reset the GPIOx peripheral
+ * Brief description:               None
  */
 #define GPIOA_RESET() do { (RCC->AHB1RSTR |= (1U << 0)); (RCC->AHB1RSTR &= ~(1U << 0)); } while(0);
 #define GPIOB_RESET() do { (RCC->AHB1RSTR |= (1U << 1)); (RCC->AHB1RSTR &= ~(1U << 1)); } while(0);
@@ -263,22 +263,22 @@ typedef struct {
 #define GPIOI_RESET() do { (RCC->AHB1RSTR |= (1U << 8)); (RCC->AHB1RSTR &= ~(1U << 8)); } while(0);
 
 /**
- * Name:                            SPIx_RESET (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Name:                            Reset the SPIx peripheral (x = 1, 2, 3, ...)
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
- * Brief description:               Reset the SPIx peripheral
+ * Brief description:               None
  */
 #define SPI1_RESET() do { (RCC->APB2RSTR |= (1U << 12)); (RCC->APB2RSTR &= ~(1U << 12)); } while(0);
 #define SPI2_RESET() do { (RCC->APB1RSTR |= (1U << 14)); (RCC->APB1RSTR &= ~(1U << 14)); } while(0);
 #define SPI3_RESET() do { (RCC->APB1RSTR |= (1U << 15)); (RCC->APB1RSTR &= ~(1U << 15)); } while(0);
 
 /**
- * Name:                            GPIOx_PLCK_EN (x = A, B, C, ...)
- * Last reviewed and updated:       None
+ * Name:                            Enable the clock for GPIOx peripheral (x = A, B, C, ...)
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
- * Brief description:               Enable the clock for GPIOx peripheral (x = A, B, C, ..)
+ * Brief description:               None
  */
 #define GPIOA_PCLK_EN() (RCC->AHB1ENR |= (1U << 0))
 #define GPIOB_PCLK_EN() (RCC->AHB1ENR |= (1U << 1))
@@ -291,11 +291,11 @@ typedef struct {
 #define GPIOI_PCLK_EN() (RCC->AHB1ENR |= (1U << 8))
 
 /**
- * Name:                            GPIOx_PLCK_DI (x = A, B, C, ...)
- * Last reviewed and updated:       None
+ * Name:                            Disable the clock for GPIOx peripheral (x = A, B, C, ..)
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
- * Brief description:               Disable the clock for GPIOx peripheral (x = A, B, C, ..)
+ * Brief description:               None
  */
 #define GPIOA_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 0))
 #define GPIOB_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 1))
