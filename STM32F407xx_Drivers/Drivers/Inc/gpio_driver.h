@@ -13,7 +13,7 @@
 
 /**
  * Name:                            GPIO configuration structure
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -29,7 +29,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO handle structure
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -41,7 +41,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO pin number
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:      	2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -65,7 +65,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO pin mode
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -80,7 +80,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO output type
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -90,7 +90,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO output speed
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -102,7 +102,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO pull-up / pull-down
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -113,7 +113,7 @@ typedef struct {
 
 /**
  * Name:                            GPIO alternate function
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
