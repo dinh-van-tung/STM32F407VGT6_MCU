@@ -111,36 +111,36 @@ typedef struct {
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t CR; 				/* Clock control register                           - Address offset: 0x00 */
-    volatile uint32_t PLLCFGR; 			/* PLL configuration register                       - Address offset: 0x04 */
-    volatile uint32_t CFGR; 			/* Clock configuration register                     - Address offset: 0x08 */
-    volatile uint32_t CIR; 				/* Clock interrupt register                         - Address offset: 0x0C */
-    volatile uint32_t AHB1RSTR; 		/* AHB1 peripheral reset register                   - Address offset: 0x10 */
-    volatile uint32_t AHB2RSTR; 		/* AHB2 peripheral reset register                   - Address offset: 0x14 */
-    volatile uint32_t AHB3RSTR; 		/* AHB3 peripheral reset register                   - Address offset: 0x18 */
-    uint32_t RESERVED0; 				/* Reserved                                         - Address offset: 0x1C */
-    volatile uint32_t APB1RSTR; 		/* APB1 peripheral reset register                   - Address offset: 0x20 */
-    volatile uint32_t APB2RSTR; 		/* APB2 peripheral reset register                   - Address offset: 0x24 */
-    uint32_t RESERVED1[2]; 				/* Reserved                                         - Address offset: 0x28 – 0x2C */
-    volatile uint32_t AHB1ENR; 			/* AHB1 peripheral clock enable register            - Address offset: 0x30 */
-    volatile uint32_t AHB2ENR; 			/* AHB2 peripheral clock enable register            - Address offset: 0x34 */
-    volatile uint32_t AHB3ENR; 			/* AHB3 peripheral clock enable register            - Address offset: 0x38 */
-    uint32_t RESERVED2; 				/* Reserved                                         - Address offset: 0x3C */
-    volatile uint32_t APB1ENR; 			/* APB1 peripheral clock enable register            - Address offset: 0x40 */
-    volatile uint32_t APB2ENR; 			/* APB2 peripheral clock enable register            - Address offset: 0x44 */
-    uint32_t RESERVED3[2]; 				/* Reserved                                         - Address offset: 0x48 – 0x4C */
-    volatile uint32_t AHB1LPENR; 		/* AHB1 low power enable register                   - Address offset: 0x50 */
-    volatile uint32_t AHB2LPENR; 		/* AHB2 low power enable register                   - Address offset: 0x54 */
-    volatile uint32_t AHB3LPENR; 		/* AHB3 low power enable register                   - Address offset: 0x58 */
-    uint32_t RESERVED4; 				/* Reserved                                         - Address offset: 0x5C */
-    volatile uint32_t APB1LPENR; 		/* APB1 low power enable register                   - Address offset: 0x60 */
-    volatile uint32_t APB2LPENR; 		/* APB2 low power enable register                   - Address offset: 0x64 */
-    uint32_t RESERVED5[2]; 				/* Reserved                                         - Address offset: 0x68 – 0x6C */
-    volatile uint32_t BDCR; 			/* Backup domain control register                   - Address offset: 0x70 */
-    volatile uint32_t CSR;				/* Clock control & status register                  - Address offset: 0x74 */
-    uint32_t RESERVED6[2]; 				/* Reserved                                         - Address offset: 0x78 – 0x7C */
-    volatile uint32_t SSCGR;			/* Spread spectrum clock generation register        - Address offset: 0x80 */
-    volatile uint32_t PLLI2SCFGR;		/* PLLI2S configuration register                    - Address offset: 0x84 */
+    volatile uint32_t CR; 				/* Clock control register                           - Address offset: 0x00 			*/
+    volatile uint32_t PLLCFGR; 			/* PLL configuration register                       - Address offset: 0x04 			*/
+    volatile uint32_t CFGR; 			/* Clock configuration register                     - Address offset: 0x08 			*/
+    volatile uint32_t CIR; 				/* Clock interrupt register                         - Address offset: 0x0C 			*/
+    volatile uint32_t AHB1RSTR; 		/* AHB1 peripheral reset register                   - Address offset: 0x10 			*/
+    volatile uint32_t AHB2RSTR; 		/* AHB2 peripheral reset register                   - Address offset: 0x14 			*/
+    volatile uint32_t AHB3RSTR; 		/* AHB3 peripheral reset register                   - Address offset: 0x18 			*/
+    uint32_t RESERVED0; 				/* Reserved                                         - Address offset: 0x1C 			*/
+    volatile uint32_t APB1RSTR; 		/* APB1 peripheral reset register                   - Address offset: 0x20 			*/
+    volatile uint32_t APB2RSTR; 		/* APB2 peripheral reset register                   - Address offset: 0x24 			*/
+    uint32_t RESERVED1[2]; 				/* Reserved                                         - Address offset: 0x28 – 0x2C 	*/
+    volatile uint32_t AHB1ENR; 			/* AHB1 peripheral clock enable register            - Address offset: 0x30 			*/
+    volatile uint32_t AHB2ENR; 			/* AHB2 peripheral clock enable register            - Address offset: 0x34 			*/
+    volatile uint32_t AHB3ENR; 			/* AHB3 peripheral clock enable register            - Address offset: 0x38 			*/
+    uint32_t RESERVED2; 				/* Reserved                                         - Address offset: 0x3C 			*/
+    volatile uint32_t APB1ENR; 			/* APB1 peripheral clock enable register            - Address offset: 0x40 			*/
+    volatile uint32_t APB2ENR; 			/* APB2 peripheral clock enable register            - Address offset: 0x44 			*/
+    uint32_t RESERVED3[2]; 				/* Reserved                                         - Address offset: 0x48 – 0x4C 	*/
+    volatile uint32_t AHB1LPENR; 		/* AHB1 low power enable register                   - Address offset: 0x50 			*/
+    volatile uint32_t AHB2LPENR; 		/* AHB2 low power enable register                   - Address offset: 0x54 			*/
+    volatile uint32_t AHB3LPENR; 		/* AHB3 low power enable register                   - Address offset: 0x58 			*/
+    uint32_t RESERVED4; 				/* Reserved                                         - Address offset: 0x5C 			*/
+    volatile uint32_t APB1LPENR; 		/* APB1 low power enable register                   - Address offset: 0x60 			*/
+    volatile uint32_t APB2LPENR; 		/* APB2 low power enable register                   - Address offset: 0x64 			*/
+    uint32_t RESERVED5[2]; 				/* Reserved                                         - Address offset: 0x68 – 0x6C 	*/
+    volatile uint32_t BDCR; 			/* Backup domain control register                   - Address offset: 0x70 			*/
+    volatile uint32_t CSR;				/* Clock control & status register                  - Address offset: 0x74 			*/
+    uint32_t RESERVED6[2]; 				/* Reserved                                         - Address offset: 0x78 – 0x7C 	*/
+    volatile uint32_t SSCGR;			/* Spread spectrum clock generation register        - Address offset: 0x80 			*/
+    volatile uint32_t PLLI2SCFGR;		/* PLLI2S configuration register                    - Address offset: 0x84 			*/
 } RCC_RegDef_t;
 #define RCC ((volatile RCC_RegDef_t*)RCC_BASE)
 
@@ -152,11 +152,11 @@ typedef struct {
  * Brief description:               None
  */
 typedef struct {
-    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Address offset: 0x00 */
-    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Address offset: 0x04 */
-    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Address offset: 0x08 – 0x14 */
-    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Address offset: 0x18 – 0x1C */
-    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 */
+    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Address offset: 0x00 			*/
+    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Address offset: 0x04 			*/
+    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Address offset: 0x08 – 0x14 	*/
+    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Address offset: 0x18 – 0x1C 	*/
+    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 			*/
 } SYSCFG_RegDef_t;
 #define SYSCFG ((volatile SYSCFG_RegDef_t*)SYSCFG_BASE)
 
@@ -309,7 +309,7 @@ typedef struct {
 
 /**
  * Name:                            SPIx_PLCK_EN (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Enable the clock for SPIx peripheral (x = 1, 2, 3, ...)
@@ -320,7 +320,7 @@ typedef struct {
 
 /**
  * Name:                            SPIx peripheral clock enable (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Disable the clock for SPIx peripheral (x = 1, 2, 3, ...)
@@ -330,8 +330,8 @@ typedef struct {
 #define SPI3_PCLK_DI() (RCC->APB1ENR &= ~(1U << 15))
 
 /**
- * Name:                            SYSCFG_PLCK_EN
- * Last reviewed and updated:       None
+ * Name:                            SYSCFG peripheral clock enable
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Enable the clock for SYSCFG peripheral
@@ -339,8 +339,8 @@ typedef struct {
 #define SYSCFG_PCLK_EN() (RCC->APB2ENR |= (1U << 14))
 
 /**
- * Name:                            SYSCFG_PLCK_DI
- * Last reviewed and updated:       None
+ * Name:                            SYSCFG peripheral clock disable
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Disable the clock for SYSCFG peripheral
@@ -349,112 +349,112 @@ typedef struct {
 
 /**
  * Name:                            Macro IRQ number
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define IRQ_NUMBER_EXTI_0 6
-#define IRQ_NUMBER_EXTI_1 7
-#define IRQ_NUMBER_EXTI_2 8
-#define IRQ_NUMBER_EXTI_3 9
-#define IRQ_NUMBER_EXTI_4 10
-#define IRQ_NUMBER_EXTI_9_5 23
-#define IRQ_NUMBER_EXTI_15_10 40
+#define IRQ_NUMBER_EXTI_0 		6
+#define IRQ_NUMBER_EXTI_1 		7
+#define IRQ_NUMBER_EXTI_2 		8
+#define IRQ_NUMBER_EXTI_3 		9
+#define IRQ_NUMBER_EXTI_4 		10
+#define IRQ_NUMBER_EXTI_9_5 	23
+#define IRQ_NUMBER_EXTI_15_10 	40
 
 /**
  * Name:                            Macro NVIC IRQ Priority Number
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define NVIC_IRQ_PRIORITY_0 0
-#define NVIC_IRQ_PRIORITY_1 1
-#define NVIC_IRQ_PRIORITY_2 2
-#define NVIC_IRQ_PRIORITY_3 3
-#define NVIC_IRQ_PRIORITY_4 4
-#define NVIC_IRQ_PRIORITY_5 5
-#define NVIC_IRQ_PRIORITY_6 6
-#define NVIC_IRQ_PRIORITY_7 7
-#define NVIC_IRQ_PRIORITY_8 8
-#define NVIC_IRQ_PRIORITY_9 9
-#define NVIC_IRQ_PRIORITY_10 10
-#define NVIC_IRQ_PRIORITY_11 11
-#define NVIC_IRQ_PRIORITY_12 12
-#define NVIC_IRQ_PRIORITY_13 13
-#define NVIC_IRQ_PRIORITY_14 14
-#define NVIC_IRQ_PRIORITY_15 15
+#define NVIC_IRQ_PRIORITY_0 	0
+#define NVIC_IRQ_PRIORITY_1 	1
+#define NVIC_IRQ_PRIORITY_2 	2
+#define NVIC_IRQ_PRIORITY_3 	3
+#define NVIC_IRQ_PRIORITY_4 	4
+#define NVIC_IRQ_PRIORITY_5 	5
+#define NVIC_IRQ_PRIORITY_6 	6
+#define NVIC_IRQ_PRIORITY_7 	7
+#define NVIC_IRQ_PRIORITY_8 	8
+#define NVIC_IRQ_PRIORITY_9 	9
+#define NVIC_IRQ_PRIORITY_10 	10
+#define NVIC_IRQ_PRIORITY_11 	11
+#define NVIC_IRQ_PRIORITY_12 	12
+#define NVIC_IRQ_PRIORITY_13 	13
+#define NVIC_IRQ_PRIORITY_14 	14
+#define NVIC_IRQ_PRIORITY_15 	15
 
 /**
  * Name:                            Macro logic
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define ENABLE 1
-#define DISABLE 0
-#define SET 1
-#define RESET 0
-#define HIGH 1
-#define LOW 0
-#define FLAG_RESET 0
-#define FLAG_SET 1
+#define ENABLE 			1
+#define DISABLE 		0
+#define SET 			1
+#define RESET 			0
+#define HIGH 			1
+#define LOW 			0
+#define FLAG_RESET 		0
+#define FLAG_SET 		1
 
 /**
  * Name:                            Macros for the bits of the SPIx_CR1 register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define SPI_CR1_CPHA 0
-#define SPI_CR1_CPOL 1
-#define SPI_CR1_MSTR 2
-#define SPI_CR1_BR 3
-#define SPI_CR1_SPE 6
-#define SPI_CR1_LSBFIRST 7
-#define SPI_CR1_SSI 8
-#define SPI_CR1_SSM 9
-#define SPI_CR1_RXONLY 10
-#define SPI_CR1_DFF 11
-#define SPI_CR1_CRCNEXT 12
-#define SPI_CR1_CRCEN 13
-#define SPI_CR1_BIDIOE 14
-#define SPI_CR1_BIDIMODE 15
+#define SPI_CR1_CPHA 		0		/* Bit 0 		CPHA: 		Clock phase 						*/
+#define SPI_CR1_CPOL 		1		/* Bit 1 		CPOL: 		Clock polarity 						*/
+#define SPI_CR1_MSTR 		2		/* Bit 2 		MSTR: 		Master selection 					*/
+#define SPI_CR1_BR 			3		/* Bits 5:3 	BR[2:0]: 	Baud rate control 					*/
+#define SPI_CR1_SPE 		6		/* Bit 6 		SPE: 		SPI enable 							*/
+#define SPI_CR1_LSBFIRST 	7		/* Bit 7 		LSBFIRST: 	Frame format 						*/
+#define SPI_CR1_SSI 		8		/* Bit 8 		SSI: 		Internal slave select 				*/
+#define SPI_CR1_SSM 		9		/* Bit 9 		SSM: 		Software slave management 			*/
+#define SPI_CR1_RXONLY 		10		/* Bit 10 		RXONLY: 	Receive only 						*/
+#define SPI_CR1_DFF 		11		/* Bit 11 		DFF: 		Data frame format 					*/
+#define SPI_CR1_CRCNEXT 	12		/* Bit 12 		CRCNEXT: 	CRC transfer next 					*/
+#define SPI_CR1_CRCEN 		13		/* Bit 13 		CRCEN: 		Hardware CRC calculation enable 	*/
+#define SPI_CR1_BIDIOE 		14		/* Bit 14 		BIDIOE: 	Output enable in bidirectional mode	*/
+#define SPI_CR1_BIDIMODE 	15		/* Bit 15 		BIDIMODE:	Bidirectional data mode enable 		*/
 
 /**
  * Name:                            Macros for the bits of the SPIx_CR2 register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define SPI_CR2_RXDMAEN 0
-#define SPI_CR2_TXDMAEN 1
-#define SPI_CR2_SSOE 2
-#define SPI_CR2_FRF 4
-#define SPI_CR2_ERRIE 5
-#define SPI_CR2_RXNEIE 6
-#define SPI_CR2_TXEIE 7
+#define SPI_CR2_RXDMAEN 	0		/* Bit 0	RXDMAEN:	Rx buffer DMA enable 					*/
+#define SPI_CR2_TXDMAEN 	1		/* Bit 1 	TXDMAEN: 	Tx buffer DMA enable 					*/
+#define SPI_CR2_SSOE 		2		/* Bit 2 	SSOE: 		SS output enable 						*/
+#define SPI_CR2_FRF 		4		/* Bit 4 	FRF: 		Frame format 							*/
+#define SPI_CR2_ERRIE 		5		/* Bit 5 	ERRIE: 		Error interrupt enable 					*/
+#define SPI_CR2_RXNEIE 		6		/* Bit 6 	RXNEIE: 	RX buffer not empty interrupt enable	*/
+#define SPI_CR2_TXEIE 		7		/* Bit 7 	TXEIE: 		Tx buffer empty interrupt enable 		*/
 
 /**
  * Name:                            Macros for the bits of the SPIx_SR register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       None
+ * Last reviewed and updated:       2025/06/20
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define SPI_SR_RXNE 0
-#define SPI_SR_TXE 1
-#define SPI_SR_CHSIDE 2
-#define SPI_SR_UDR 3
-#define SPI_SR_CRCERR 4
-#define SPI_SR_MODF 5
-#define SPI_SR_OVR 6
-#define SPI_SR_BSY 7
-#define SPI_SR_FRE 8
+#define SPI_SR_RXNE 	0		/* Bit 0	RXNE: Receive buffer not empty 	*/
+#define SPI_SR_TXE 		1		/* Bit 1 	TXE: Transmit buffer empty		*/
+#define SPI_SR_CHSIDE	2		/* Bit 2 	CHSIDE: Channel side			*/
+#define SPI_SR_UDR 		3		/* Bit 3 	UDR: Underrun flag				*/
+#define SPI_SR_CRCERR	4		/* Bit 4 	CRCERR: CRC error flag			*/
+#define SPI_SR_MODF 	5		/* Bit 5 	MODF: Mode fault				*/
+#define SPI_SR_OVR 		6		/* Bit 6 	OVR: Overrun flag				*/
+#define SPI_SR_BSY 		7		/* Bit 7 	BSY: Busy flag					*/
+#define SPI_SR_FRE 		8		/* Bit 8 	FRE: Frame format error			*/
 
 #include "gpio_driver.h"
 #include "spi_driver.h"
