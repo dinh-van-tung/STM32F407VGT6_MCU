@@ -72,5 +72,6 @@ int main(void) {
 
 	SPI_SPEConfig(SPI2, DISABLE);
 	while(1) {}
+	
 	return 0;
 }
