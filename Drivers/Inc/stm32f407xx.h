@@ -425,7 +425,6 @@ typedef struct {
 #define FLAG_RESET 		0
 #define FLAG_SET 		1
 
-
 /**
  * Name:                            Macros for the bits of the SPIx_CR1 register (x = 1, 2, 3, ...)
  * Last reviewed and updated:       2025/06/20
