@@ -53,8 +53,8 @@ void SPI2_Inits(void) {
 	SPI2_Handle.SPI_Config.SPI_SCLKSpeed = SPI_SCLK_SPEED_DIV_2;
 	SPI2_Handle.SPI_Config.SPI_DFF = SPI_DFF_8_BITS;
 	SPI2_Handle.SPI_Config.SPI_SSM = SPI_SSM_SOFTWARE_EN;
-	SPI2_Handle.SPI_Config.SPI_CPOL = SPI_CPOL_HIGH;
-	SPI2_Handle.SPI_Config.SPI_CPHA = SPI_CPHA_SECOND_CLK;
+	SPI2_Handle.SPI_Config.SPI_CPOL = SPI_CPOL_HIGH;			/* App Logic 2: CPOL = 0 */
+	SPI2_Handle.SPI_Config.SPI_CPHA = SPI_CPHA_SECOND_CLK;		/* App Logic 2: CPOL = 1 */
 	SPI_Init(&SPI2_Handle);
 }
 
