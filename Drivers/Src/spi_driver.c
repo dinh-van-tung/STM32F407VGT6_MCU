@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include "spi_driver.h"
 
+
 /**
  * Name:                            SPI_GetFlagStatus
  * Last reviewed and updated:       2025/06/21
@@ -181,6 +182,7 @@ void SPI_DeInit(volatile SPI_RegDef_t *pSPIx) {
 		SPI3_RESET();
 	}
 }
+
 
 /**
  * Name:                            SPI_SendData
