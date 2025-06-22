@@ -53,8 +53,8 @@ void SPI2_Inits(void) {
 	SPI2_Handle.SPI_Config.SPI_SCLKSpeed = SPI_SCLK_SPEED_DIV_2;
 	SPI2_Handle.SPI_Config.SPI_DFF = SPI_DFF_8_BITS;
 	SPI2_Handle.SPI_Config.SPI_SSM = SPI_SSM_SOFTWARE_EN;
-	SPI2_Handle.SPI_Config.SPI_CPOL = SPI_CPOL_HIGH;			/* App Logic 2: CPOL = 0 */
-	SPI2_Handle.SPI_Config.SPI_CPHA = SPI_CPHA_SECOND_CLK;		/* App Logic 2: CPOL = 1 */
+	SPI2_Handle.SPI_Config.SPI_CPOL = SPI_CPOL_LOW;					/* App Logic 2: CPOL = 0 ??? */
+	SPI2_Handle.SPI_Config.SPI_CPHA = SPI_CPHA_FIRST_CLK;			/* App Logic 2: CPHA = 1 ??? */
 	SPI_Init(&SPI2_Handle);
 }
 
@@ -63,7 +63,10 @@ int main(void) {
 	SPI2_GPIO_Inits();
 	SPI2_Inits();
 
-	char user_data[] = "MASTER -> SLAVE: Van Tung Dinh";
+	GPIO_WriteOutputPin(GPIOB, GPIO_PIN_13, LOW);
+	GPIO_WriteOutputPin(GPIOB, GPIO_PIN_15, LOW);
+
+	char user_data[] = "Hello World ?";
 
 	SPI_SSIConfig(SPI2, ENABLE);
 	SPI_SPEConfig(SPI2, ENABLE);
@@ -71,8 +74,8 @@ int main(void) {
 	SPI_SendData(SPI2, (uint8_t*)user_data, strlen(user_data));
 
 	SPI_SPEConfig(SPI2, DISABLE);
-	
+
 	while(1) {}
-	
+
 	return 0;
 }
