@@ -483,6 +483,31 @@ typedef struct {
 #define SPI_SR_FRE 		8		/* Bit 8 	FRE: Frame format error			*/
 
 
+/**
+ * Name:                            Macros for the bits of the RCC_CFGR register
+ * Last reviewed and updated:       2025/06/20
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define RCC_CFGR_SW0
+#define RCC_CFGR_SW1
+#define RCC_CFGR_SWS0
+#define RCC_CFGR_SWS1
+#define RCC_CFGR_HPRE
+#define RCC_CFGR_PPRE1
+#define RCC_CFGR_PPRE2
+#define RCC_CFGR_RTCPRE
+#define RCC_CFGR_MCO1
+#define RCC_CFGR_I2SSCR
+#define RCC_CFGR_MCO1PRE
+#define RCC_CFGR_SW1
+#define RCC_CFGR_SW1
+#define RCC_CFGR_SW1
+#define RCC_CFGR_SW1
+#define RCC_CFGR_SW1
+
+
 #include "gpio_driver.h"
 #include "spi_driver.h"
 
