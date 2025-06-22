@@ -1,5 +1,5 @@
 /*
- * exe004_spi_tx_testing.c
+ * exe005_spi_txonly_arduino.c
  *
  * Created on: Jun 22, 2025
  * Author: Van Tung Dinh
@@ -11,8 +11,8 @@
 #include "stm32f407xx.h"
 
 
-void TimeDelay(uint8_t Value) {
-	for (uint32_t i = 0; i <= 500000 / Value; i += 1) {}
+void TimeDelay(uint8_t Div_x) {
+	for (uint32_t i = 0; i <= 500000 / Div_x; i += 1) {}
 }
 
 
@@ -77,7 +77,7 @@ int main(void) {
 
 	SPI_SSOEConfig(SPI2, ENABLE);
 
-	char user_data[] = "MASTER -> SLAVE: SOS ... SOS ... SOS Van Tung Dinh";
+	char user_data[] = "Master -> Slave: Hello SPI World <3";
 	uint32_t length = strlen(user_data);
 
 	while (1) {
