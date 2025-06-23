@@ -485,27 +485,45 @@ typedef struct {
 
 /**
  * Name:                            Macros for the bits of the RCC_CFGR register
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/23
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define RCC_CFGR_SW0
-#define RCC_CFGR_SW1
-#define RCC_CFGR_SWS0
-#define RCC_CFGR_SWS1
-#define RCC_CFGR_HPRE
-#define RCC_CFGR_PPRE1
-#define RCC_CFGR_PPRE2
-#define RCC_CFGR_RTCPRE
-#define RCC_CFGR_MCO1
-#define RCC_CFGR_I2SSCR
-#define RCC_CFGR_MCO1PRE
-#define RCC_CFGR_SW1
-#define RCC_CFGR_SW1
-#define RCC_CFGR_SW1
-#define RCC_CFGR_SW1
-#define RCC_CFGR_SW1
+#define RCC_CFGR_SW				0
+#define RCC_CFGR_SWS			2
+#define RCC_CFGR_HPRE			4
+#define RCC_CFGR_PPRE1			10
+#define RCC_CFGR_PPRE2			13
+#define RCC_CFGR_RTCPRE			16
+#define RCC_CFGR_MCO1			21
+#define RCC_CFGR_I2SSCR			23
+#define RCC_CFGR_MCO1PRE		24
+#define RCC_CFGR_MCO2PRE		27
+#define RCC_CFGR_MCO2			30
+
+
+/**
+ * Name:                            Macros for the bits of the RCC_CFGR register
+ * Last reviewed and updated:       2025/06/23
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define RCC_CR_HSION			0
+#define RCC_CR_HSIRDY			1
+#define RCC_CR_HSITRIM			3
+#define RCC_CR_HSICAL			8
+#define RCC_CR_HSEON			16
+#define RCC_CR_HSERDY			17
+#define RCC_CR_HSEBYP			18
+#define RCC_CR_CSSON			19
+#define RCC_CR_PLLON			24
+#define RCC_CR_PLLRDY			25
+#define RCC_CR_PLLI2SON			26
+#define RCC_CR_PLLI2SRDY		27
+#define RCC_CR_PLLSAION			28
+#define RCC_CR_PLLSAIRDY		29
 
 
 #include "gpio_driver.h"
