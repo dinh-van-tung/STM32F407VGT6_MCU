@@ -77,7 +77,7 @@ typedef struct {
  */
 #define GPIO_MODE_INPUT 				0
 #define GPIO_MODE_OUTPUT 				1
-#define GPIO_MODE_ALTFUNC 				2
+#define GPIO_MODE_ALTERNATE_FUNC 		2
 #define GPIO_MODE_ANALOG 				3
 #define GPIO_MODE_INTERRUPT_FTRIG 		4
 #define GPIO_MODE_INTERRUPT_RTRIG 		5
