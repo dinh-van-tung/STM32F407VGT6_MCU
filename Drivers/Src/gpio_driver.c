@@ -145,7 +145,7 @@ void GPIO_Init(volatile GPIO_Handle_t *pGPIOx_Handle) {
 	pGPIOx_Handle->pGPIOx->OTYPER |= temp;
 
 	/* Configure the alternate function of a GPIO pin */
-	if (pGPIOx_Handle->GPIO_Config.GPIO_PinMode == GPIO_MODE_ALTFUNC) {
+	if (pGPIOx_Handle->GPIO_Config.GPIO_PinMode == GPIO_MODE_ALTERNATE_FUNC) {
 		uint32_t firstBIT = pGPIOx_Handle->GPIO_Config.GPIO_PinNumber % 8;
 		temp = (pGPIOx_Handle->GPIO_Config.GPIO_PinAltFuncMode << (4 * firstBIT));
 		if (pGPIOx_Handle->GPIO_Config.GPIO_PinNumber <= GPIO_PIN_7) {
