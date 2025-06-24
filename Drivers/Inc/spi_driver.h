@@ -1,8 +1,8 @@
 /**
  * spi_driver.h
  *
- * Created on: Jun 16, 2025
- * Author: Van Tung Dinh
+ * Created on: Jun 20, 2025
+ * Author: VanTungDinh
  */
 
 #ifndef INC_SPI_DRIVER_H_
