@@ -1,8 +1,8 @@
 /**
  * stm32f407xx.h
  *
- * Created on: Jun 12, 2025
- * Author: Van Tung Dinh
+ * Created on: Jun 20, 2025
+ * Author: VanTungDinh
  */
 
 #ifndef INC_STM32F407XX_H_
@@ -411,7 +411,7 @@ typedef struct {
 
 /**
  * Name:                            Macro logic
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/24
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -424,6 +424,8 @@ typedef struct {
 #define LOW 			0
 #define FLAG_RESET 		0
 #define FLAG_SET 		1
+#define OFF				0
+#define ON				1
 
 
 /**
