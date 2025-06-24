@@ -1,8 +1,8 @@
 /**
  * spi_driver.c
  *
- * Created on: Jun 16, 2025
- * Author: Van Tung Dinh
+ * Created on: Jun 20, 2025
+ * Author: VanTungDinh
  */
 
 #include <stdio.h>
@@ -195,16 +195,17 @@ void SPI_DeInit(volatile SPI_RegDef_t *pSPIx) {
  */
 void SPI_SendData(volatile SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t LengthData) {
 	while (LengthData > 0) {
+		/* Wait until Tx buffer empty (TXE = 1) */
 		while (SPI_GetFlagStatus(pSPIx, SPI_FLAG_TXE) == FLAG_RESET) {}
 
 		if ((pSPIx->CR1 >> SPI_CR1_DFF) & 1U) {
-			// 16 BITS DFF
+			/* 16 BITS DFF */
 			pSPIx->DR = *((uint16_t*)pTxBuffer);
 			LengthData -= 2;
 			pTxBuffer += 2;
 		}
 		else {
-			// 8 BITS DFF
+			/* 8 BITS DFF */
 			*((volatile uint8_t*)&pSPIx->DR) = *(pTxBuffer);
 			LengthData -= 1;
 			pTxBuffer += 1;
@@ -216,8 +217,39 @@ void SPI_SendData(volatile SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len
 }
 
 
-//void SPI_ReceiveData(volatile SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t LengthData);
-//
+/**
+ * Name:                            SPI_ReceiveData
+ * Last reviewed and updated:       2025/06/24
+ * Parameters:                      1) *pSPIx:			Pointer to a SPI peripheral
+ * 									2) pRxBuffer:		The pointer points to the data storage location
+ * 									3) LengthData:		The length (in bytes) of the data
+ * Return type:                     void
+ * Brief description:				Receive data via the SPI protocol
+ */
+void SPI_ReceiveData(volatile SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t LengthData) {
+	while (LengthData > 0) {
+		/* Wait until Rx buffer not empty (RXNE = 1) */
+		while (SPI_GetFlagStatus(pSPIx, SPI_FLAG_RXNE) == FLAG_RESET) {}
+
+		if ((pSPIx->CR1 >> SPI_CR1_DFF) & 1U) {
+			/* 16 BITS DFF */
+			*((uint16_t*)pRxBuffer) = pSPIx->DR;
+			LengthData -= 2;
+			pRxBuffer += 2;
+		}
+		else {
+			/* 8 BITS DFF */
+			*(pRxBuffer) = *((volatile uint8_t*)&pSPIx->DR);
+			LengthData -= 1;
+			pRxBuffer += 1;
+		}
+
+		/* Wait until the data has been sent (BSY flag = 0) */
+		while (SPI_GetFlagStatus(pSPIx, SPI_FLAG_BSY)) {}
+	}
+}
+
+
 //void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t ENorDI);
 //
 //void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority);
