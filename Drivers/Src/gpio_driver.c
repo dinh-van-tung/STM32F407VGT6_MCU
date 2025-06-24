@@ -1,8 +1,8 @@
 /**
  * gpio_driver.c
  *
- * Created on: Jun 12, 2025
- * Author: Van Tung Dinh
+ * Created on: Jun 20, 2025
+ * Author: VanTungDinh
  */
 
 #include <stdint.h>
