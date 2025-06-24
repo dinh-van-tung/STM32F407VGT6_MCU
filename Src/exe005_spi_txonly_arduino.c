@@ -2,7 +2,7 @@
  * exe005_spi_txonly_arduino.c
  *
  * Created on: Jun 22, 2025
- * Author: Van Tung Dinh
+ * Author: VanTungDinh
  */
 
 #include <stdio.h>
@@ -33,7 +33,7 @@ void SPI2_GPIO_Inits(void) {
 	GPIO_Init(&Button);
 
 	SPI2_GPIO_Handle.pGPIOx = GPIOB;
-	SPI2_GPIO_Handle.GPIO_Config.GPIO_PinMode = GPIO_MODE_ALTFUNC;
+	SPI2_GPIO_Handle.GPIO_Config.GPIO_PinMode = GPIO_MODE_ALTERNATE_FUNC;
 	SPI2_GPIO_Handle.GPIO_Config.GPIO_PinAltFuncMode = GPIO_MODE_AF_5;
 	SPI2_GPIO_Handle.GPIO_Config.GPIO_PinOutSpeed = GPIO_OUT_SPEED_VERYHIGH;
 	SPI2_GPIO_Handle.GPIO_Config.GPIO_PinOutType = GPIO_OUT_TYPE_PUSHPULL;
