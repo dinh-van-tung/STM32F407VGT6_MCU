@@ -1,8 +1,8 @@
 /**
  * gpio_driver.h
  *
- * Created on: Jun 12, 2025
- * Author: Van Tung Dinh
+ * Created on: Jun 20, 2025
+ * Author: VanTungDinh
  */
 
 #ifndef INC_GPIO_DRIVER_H_
