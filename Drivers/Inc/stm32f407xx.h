@@ -1,7 +1,7 @@
 /**
- * stm32f407xx.h
+ * File: stm32f407xx.h
  *
- * Last reviewed and updated: 2025/06/25
+ * Last reviewed and updated: 2025/06/26
  * Author: VanTungDinh
  */
 
@@ -12,9 +12,11 @@
 #include <stdint.h>
 
 
+/************************************************** Base address - OPEN - **************************************************/
+
 /**
  * Name:                            System memory base addresses
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -39,7 +41,7 @@
 
 /**
  * Name:                            AHB1 peripheral base addresses
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -52,70 +54,56 @@
 #define GPIOF_BASE      (AHB1_BASE + 0x1400)
 #define GPIOG_BASE      (AHB1_BASE + 0x1800)
 #define GPIOH_BASE      (AHB1_BASE + 0x1C00)
-#define GPIOI_BASE      (AHB1_BASE + 0x2000)
+#define GPIOI_BASE		(AHB1_BASE + 0x2000)
+
 #define RCC_BASE        (AHB1_BASE + 0x3800)
 
 
 /**
  * Name:                            APB1 peripheral base addresses
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define I2C1_BASE        	(APB1_BASE + 0x5400)
+#define I2C1_BASE			(APB1_BASE + 0x5400)
 #define I2C2_BASE        	(APB1_BASE + 0x5800)
 #define I2C3_BASE        	(APB1_BASE + 0x5C00)
+
 #define SPI2_BASE        	(APB1_BASE + 0x3800)
 #define SPI3_BASE        	(APB1_BASE + 0x3C00)
+
 #define USART2_BASE			(APB1_BASE + 0x4400)
 #define USART3_BASE			(APB1_BASE + 0x4800)
+
 #define UART4_BASE       	(APB1_BASE + 0x4C00)
 #define UART5_BASE       	(APB1_BASE + 0x5000)
 
 
 /**
  * Name:                            APB2 peripheral base addresses
- * Last reviewed and updated:       2025/06/19
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
 #define SPI1_BASE        	(APB2_BASE + 0x3000)
+
 #define USART1_BASE			(APB2_BASE + 0x1000)
-#define USART6_BASE      	(APB2_BASE + 0x1400)
+#define USART6_BASE			(APB2_BASE + 0x1400)
+
 #define EXTI_BASE        	(APB2_BASE + 0x3C00)
+
 #define SYSCFG_BASE			(APB2_BASE + 0x3800)
 
+/************************************************** Base address - CLOSE - **************************************************/
 
-/**
- * Name:                            NVIC register structure
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-typedef struct {
-    volatile uint32_t ISER[8]; 				/* Interrupt Set Enable Registers                   - Base address: 0xE000E100 */
-    volatile uint32_t RESERVED0[24]; 		/* Reserved                                         - Base address: 0xE000E120 */
-    volatile uint32_t ICER[8]; 				/* Interrupt Clear Enable Registers                 - Base address: 0XE000E180 */
-    volatile uint32_t RESERVED1[24]; 		/* Reserved                                         - Base address: 0xE000E1A0 */
-    volatile uint32_t ISPR[8]; 				/* Interrupt Set Pending Registers                  - Base address: 0XE000E200 */
-    volatile uint32_t RESERVED2[24]; 		/* Reserved                                         - Base address: 0XE000E220 */
-    volatile uint32_t ICPR[8]; 				/* Interrupt Clear Pending Registers                - Base address: 0XE000E280 */
-    volatile uint32_t RESERVED3[24]; 		/* Reserved                                         - Base address: 0XE000E2A0 */
-    volatile uint32_t IABR[8]; 				/* Interrupt Active Bit Registers                   - Base address: 0xE000E300 */
-    volatile uint32_t RESERVED4[56];		/* Reserved                                         - Base address: 0XE000E320 */
-    volatile uint32_t IPR[60]; 				/* Interrupt Priority Registers (IPR0 – IPR59)		- Base address: 0xE000E400 */
-    volatile uint32_t RESERVED5[644]; 		/* Reserved                                         - Base address: 0XE000E4F0 */
-    volatile uint32_t STIR; 				/* Software Trigger Interrupt Register              - Base address: 0xE000EF00 */
-} NVIC_RegDef_t;
-#define NVIC ((volatile NVIC_RegDef_t*)NVIC_BASE)
 
+/************************************************** RCC assembly - OPEN - **************************************************/
 
 /**
  * Name:                            RCC register structure
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -156,43 +144,55 @@ typedef struct {
 
 
 /**
- * Name:                            SYSCFG register structure
- * Last reviewed and updated:       2025/06/20
+ * Name:                            Macros for the bits of the RCC clock configuration register
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-typedef struct {
-    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Address offset: 0x00 			*/
-    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Address offset: 0x04 			*/
-    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Address offset: 0x08 – 0x14 	*/
-    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Address offset: 0x18 – 0x1C 	*/
-    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 			*/
-} SYSCFG_RegDef_t;
-#define SYSCFG ((volatile SYSCFG_RegDef_t*)SYSCFG_BASE)
+#define RCC_CFGR_SW				0
+#define RCC_CFGR_SWS			2
+#define RCC_CFGR_HPRE			4
+#define RCC_CFGR_PPRE1			10
+#define RCC_CFGR_PPRE2			13
+#define RCC_CFGR_RTCPRE			16
+#define RCC_CFGR_MCO1			21
+#define RCC_CFGR_I2SSRC			23
+#define RCC_CFGR_MCO1PRE		24
+#define RCC_CFGR_MCO2PRE		27
+#define RCC_CFGR_MCO2			30
 
 
 /**
- * Name:                            EXTI register structure
- * Last reviewed and updated:       2025/06/20
+ * Name:                            Macros for the bits of the RCC clock control register
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-typedef struct {
-    volatile uint32_t IMR; 			/* Interrupt mask register                    - Address offset: 0x00 */
-    volatile uint32_t EMR; 			/* Event mask register                        - Address offset: 0x04 */
-    volatile uint32_t RTSR; 		/* Rising trigger selection register          - Address offset: 0x08 */
-    volatile uint32_t FTSR; 		/* Falling trigger selection register         - Address offset: 0x0C */
-    volatile uint32_t SWIER;		/* Software interrupt event register          - Address offset: 0x10 */
-    volatile uint32_t PR; 			/* Pending register                           - Address offset: 0x14 */
-} EXTI_RegDef_t;
-#define EXTI ((volatile EXTI_RegDef_t*)EXTI_BASE)
+#define RCC_CR_HSION			0
+#define RCC_CR_HSIRDY			1
+#define RCC_CR_HSITRIM			3
+#define RCC_CR_HSICAL			8
+#define RCC_CR_HSEON			16
+#define RCC_CR_HSERDY			17
+#define RCC_CR_HSEBYP			18
+#define RCC_CR_CSSON			19
+#define RCC_CR_PLLON			24
+#define RCC_CR_PLLRDY			25
+#define RCC_CR_PLLI2SON			26
+#define RCC_CR_PLLI2SRDY		27
+#define RCC_CR_PLLSAION			28
+#define RCC_CR_PLLSAIRDY		29
 
+/************************************************** RCC assembly - CLOSE - **************************************************/
+
+
+/************************************************** GPIO assembly - OPEN - **************************************************/
 
 /**
  * Name:                            GPIO register structure
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -221,8 +221,227 @@ typedef struct {
 
 
 /**
+ * Name:                            GPIO_PORT_CODE
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      1) x: a pointer to a structure of type GPIO
+ * Return type:                     uint8_t
+ * Brief description:               Returns the corresponding value for each GPIOx peripheral (x = A, B, C, ...)
+ */
+#define GPIO_PORT_CODE(x)   ((x == GPIOA) ? 0 : \
+                            (x == GPIOB)  ? 1 : \
+                            (x == GPIOC)  ? 2 : \
+                            (x == GPIOD)  ? 3 : \
+                            (x == GPIOE)  ? 4 : \
+                            (x == GPIOF)  ? 5 : \
+                            (x == GPIOG)  ? 6 : \
+                            (x == GPIOH)  ? 7 : \
+                            (x == GPIOI)  ? 8 : 0)
+
+
+/**
+ * Name:                            Reset the GPIOx peripheral (x = A, B, C, ...)
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define GPIOA_RESET() do { (RCC->AHB1RSTR |= (1U << 0)); (RCC->AHB1RSTR &= ~(1U << 0)); } while(0);
+#define GPIOB_RESET() do { (RCC->AHB1RSTR |= (1U << 1)); (RCC->AHB1RSTR &= ~(1U << 1)); } while(0);
+#define GPIOC_RESET() do { (RCC->AHB1RSTR |= (1U << 2)); (RCC->AHB1RSTR &= ~(1U << 2)); } while(0);
+#define GPIOD_RESET() do { (RCC->AHB1RSTR |= (1U << 3)); (RCC->AHB1RSTR &= ~(1U << 3)); } while(0);
+#define GPIOE_RESET() do { (RCC->AHB1RSTR |= (1U << 4)); (RCC->AHB1RSTR &= ~(1U << 4)); } while(0);
+#define GPIOF_RESET() do { (RCC->AHB1RSTR |= (1U << 5)); (RCC->AHB1RSTR &= ~(1U << 5)); } while(0);
+#define GPIOG_RESET() do { (RCC->AHB1RSTR |= (1U << 6)); (RCC->AHB1RSTR &= ~(1U << 6)); } while(0);
+#define GPIOH_RESET() do { (RCC->AHB1RSTR |= (1U << 7)); (RCC->AHB1RSTR &= ~(1U << 7)); } while(0);
+#define GPIOI_RESET() do { (RCC->AHB1RSTR |= (1U << 8)); (RCC->AHB1RSTR &= ~(1U << 8)); } while(0);
+
+
+/**
+ * Name:                            Enable the clock for GPIOx peripheral (x = A, B, C, ...)
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define GPIOA_PCLK_EN() (RCC->AHB1ENR |= (1U << 0))
+#define GPIOB_PCLK_EN() (RCC->AHB1ENR |= (1U << 1))
+#define GPIOC_PCLK_EN() (RCC->AHB1ENR |= (1U << 2))
+#define GPIOD_PCLK_EN() (RCC->AHB1ENR |= (1U << 3))
+#define GPIOE_PCLK_EN() (RCC->AHB1ENR |= (1U << 4))
+#define GPIOF_PCLK_EN() (RCC->AHB1ENR |= (1U << 5))
+#define GPIOG_PCLK_EN() (RCC->AHB1ENR |= (1U << 6))
+#define GPIOH_PCLK_EN() (RCC->AHB1ENR |= (1U << 7))
+#define GPIOI_PCLK_EN() (RCC->AHB1ENR |= (1U << 8))
+
+
+/**
+ * Name:                            Disable the clock for GPIOx peripheral (x = A, B, C, ..)
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define GPIOA_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 0))
+#define GPIOB_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 1))
+#define GPIOC_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 2))
+#define GPIOD_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 3))
+#define GPIOE_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 4))
+#define GPIOF_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 5))
+#define GPIOG_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 6))
+#define GPIOH_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 7))
+#define GPIOI_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 8))
+
+/************************************************** GPIO assembly - CLOSE - **************************************************/
+
+
+/************************************************** SYSCFG assembly - OPEN - **************************************************/
+
+/**
+ * Name:                            SYSCFG register structure
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+typedef struct {
+    volatile uint32_t MEMRMP; 			/* Memory remap register                                        - Address offset: 0x00 			*/
+    volatile uint32_t PMC; 				/* Peripheral mode configuration register                       - Address offset: 0x04 			*/
+    volatile uint32_t EXTICR[4];		/* External interrupt configuration registers 1, 2, 3, 4        - Address offset: 0x08 – 0x14 	*/
+    uint32_t RESERVED0[2]; 				/* Reserved                                                     - Address offset: 0x18 – 0x1C 	*/
+    volatile uint32_t CMPCR; 			/* Compensation cell control register                           - Address offset: 0x20 			*/
+} SYSCFG_RegDef_t;
+#define SYSCFG ((volatile SYSCFG_RegDef_t*)SYSCFG_BASE)
+
+
+/**
+ * Name:                            SYSCFG peripheral clock enable
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               Enable the clock for SYSCFG peripheral
+ */
+#define SYSCFG_PCLK_EN() (RCC->APB2ENR |= (1U << 14))
+
+
+/**
+ * Name:                            SYSCFG peripheral clock disable
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               Disable the clock for SYSCFG peripheral
+ */
+#define SYSCFG_PCLK_DI() (RCC->APB2ENR &= ~(1U << 14))
+
+/************************************************** SYSCFG assembly - CLOSE - **************************************************/
+
+
+/************************************************** NVIC assembly - OPEN - **************************************************/
+
+/**
+ * Name:                            NVIC register structure
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+typedef struct {
+    volatile uint32_t ISER[8]; 				/* Interrupt Set Enable Registers                   - Base address: 0xE000E100 */
+    volatile uint32_t RESERVED0[24]; 		/* Reserved                                         - Base address: 0xE000E120 */
+    volatile uint32_t ICER[8]; 				/* Interrupt Clear Enable Registers                 - Base address: 0XE000E180 */
+    volatile uint32_t RESERVED1[24]; 		/* Reserved                                         - Base address: 0xE000E1A0 */
+    volatile uint32_t ISPR[8]; 				/* Interrupt Set Pending Registers                  - Base address: 0XE000E200 */
+    volatile uint32_t RESERVED2[24]; 		/* Reserved                                         - Base address: 0XE000E220 */
+    volatile uint32_t ICPR[8]; 				/* Interrupt Clear Pending Registers                - Base address: 0XE000E280 */
+    volatile uint32_t RESERVED3[24]; 		/* Reserved                                         - Base address: 0XE000E2A0 */
+    volatile uint32_t IABR[8]; 				/* Interrupt Active Bit Registers                   - Base address: 0xE000E300 */
+    volatile uint32_t RESERVED4[56];		/* Reserved                                         - Base address: 0XE000E320 */
+    volatile uint32_t IPR[60]; 				/* Interrupt Priority Registers (IPR0 – IPR59)		- Base address: 0xE000E400 */
+    volatile uint32_t RESERVED5[644]; 		/* Reserved                                         - Base address: 0XE000E4F0 */
+    volatile uint32_t STIR; 				/* Software Trigger Interrupt Register              - Base address: 0xE000EF00 */
+} NVIC_RegDef_t;
+#define NVIC ((volatile NVIC_RegDef_t*)NVIC_BASE)
+
+
+/**
+ * Name:                            Macro NVIC Priority Number
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define NVIC_PRIORITY_0 		0
+#define NVIC_PRIORITY_1 		1
+#define NVIC_PRIORITY_2 		2
+#define NVIC_PRIORITY_3 		3
+#define NVIC_PRIORITY_4 		4
+#define NVIC_PRIORITY_5 		5
+#define NVIC_PRIORITY_6 		6
+#define NVIC_PRIORITY_7 		7
+#define NVIC_PRIORITY_8 		8
+#define NVIC_PRIORITY_9 		9
+#define NVIC_PRIORITY_10 		10
+#define NVIC_PRIORITY_11 		11
+#define NVIC_PRIORITY_12 		12
+#define NVIC_PRIORITY_13 		13
+#define NVIC_PRIORITY_14 		14
+#define NVIC_PRIORITY_15		15
+
+
+/**
+ * Name:                            High bit in the IPR register of the NVIC
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define NVIC_PRIO_BITS			4
+
+/************************************************** NVIC assembly - CLOSE - **************************************************/
+
+
+/************************************************** EXTI assembly - OPEN - **************************************************/
+
+/**
+ * Name:                            EXTI register structure
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+typedef struct {
+    volatile uint32_t IMR; 			/* Interrupt mask register                    - Address offset: 0x00 */
+    volatile uint32_t EMR; 			/* Event mask register                        - Address offset: 0x04 */
+    volatile uint32_t RTSR; 		/* Rising trigger selection register          - Address offset: 0x08 */
+    volatile uint32_t FTSR; 		/* Falling trigger selection register         - Address offset: 0x0C */
+    volatile uint32_t SWIER;		/* Software interrupt event register          - Address offset: 0x10 */
+    volatile uint32_t PR; 			/* Pending register                           - Address offset: 0x14 */
+} EXTI_RegDef_t;
+#define EXTI ((volatile EXTI_RegDef_t*)EXTI_BASE)
+
+
+/**
+ * Name:                            Macro IRQ number
+ * Last reviewed and updated:       2025/06/26
+ * Parameters:                      None
+ * Return type:                     None
+ * Brief description:               None
+ */
+#define EXTI0_IRQn 			6
+#define EXTI1_IRQn 			7
+#define EXTI2_IRQn 			8
+#define EXTI3_IRQn 			9
+#define EXTI4_IRQn 			10
+#define EXTI9_5_IRQn 		23
+#define EXTI15_10_IRQn 		40
+
+/************************************************** EXTI assembly - CLOSE - **************************************************/
+
+
+/************************************************** SPI assembly - OPEN - **************************************************/
+
+/**
  * Name:                            SPI register structure
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -244,44 +463,8 @@ typedef struct {
 
 
 /**
- * Name:                            GPIO_PORT_CODE
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      1) x: a pointer to a structure of type GPIO
- * Return type:                     uint8_t
- * Brief description:               Returns the corresponding value for each GPIOx peripheral (x = A, B, C, ...)
- */
-#define GPIO_PORT_CODE(x)   ((x == GPIOA) ? 0 : \
-                            (x == GPIOB)  ? 1 : \
-                            (x == GPIOC)  ? 2 : \
-                            (x == GPIOD)  ? 3 : \
-                            (x == GPIOE)  ? 4 : \
-                            (x == GPIOF)  ? 5 : \
-                            (x == GPIOG)  ? 6 : \
-                            (x == GPIOH)  ? 7 : \
-                            (x == GPIOI)  ? 8 : 0)
-
-
-/**
- * Name:                            Reset the GPIOx peripheral (x = A, B, C, ...)
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define GPIOA_RESET() do { (RCC->AHB1RSTR |= (1U << 0)); (RCC->AHB1RSTR &= ~(1U << 0)); } while(0);
-#define GPIOB_RESET() do { (RCC->AHB1RSTR |= (1U << 1)); (RCC->AHB1RSTR &= ~(1U << 1)); } while(0);
-#define GPIOC_RESET() do { (RCC->AHB1RSTR |= (1U << 2)); (RCC->AHB1RSTR &= ~(1U << 2)); } while(0);
-#define GPIOD_RESET() do { (RCC->AHB1RSTR |= (1U << 3)); (RCC->AHB1RSTR &= ~(1U << 3)); } while(0);
-#define GPIOE_RESET() do { (RCC->AHB1RSTR |= (1U << 4)); (RCC->AHB1RSTR &= ~(1U << 4)); } while(0);
-#define GPIOF_RESET() do { (RCC->AHB1RSTR |= (1U << 5)); (RCC->AHB1RSTR &= ~(1U << 5)); } while(0);
-#define GPIOG_RESET() do { (RCC->AHB1RSTR |= (1U << 6)); (RCC->AHB1RSTR &= ~(1U << 6)); } while(0);
-#define GPIOH_RESET() do { (RCC->AHB1RSTR |= (1U << 7)); (RCC->AHB1RSTR &= ~(1U << 7)); } while(0);
-#define GPIOI_RESET() do { (RCC->AHB1RSTR |= (1U << 8)); (RCC->AHB1RSTR &= ~(1U << 8)); } while(0);
-
-
-/**
  * Name:                            Reset the SPIx peripheral (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -292,44 +475,8 @@ typedef struct {
 
 
 /**
- * Name:                            Enable the clock for GPIOx peripheral (x = A, B, C, ...)
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define GPIOA_PCLK_EN() (RCC->AHB1ENR |= (1U << 0))
-#define GPIOB_PCLK_EN() (RCC->AHB1ENR |= (1U << 1))
-#define GPIOC_PCLK_EN() (RCC->AHB1ENR |= (1U << 2))
-#define GPIOD_PCLK_EN() (RCC->AHB1ENR |= (1U << 3))
-#define GPIOE_PCLK_EN() (RCC->AHB1ENR |= (1U << 4))
-#define GPIOF_PCLK_EN() (RCC->AHB1ENR |= (1U << 5))
-#define GPIOG_PCLK_EN() (RCC->AHB1ENR |= (1U << 6))
-#define GPIOH_PCLK_EN() (RCC->AHB1ENR |= (1U << 7))
-#define GPIOI_PCLK_EN() (RCC->AHB1ENR |= (1U << 8))
-
-
-/**
- * Name:                            Disable the clock for GPIOx peripheral (x = A, B, C, ..)
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define GPIOA_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 0))
-#define GPIOB_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 1))
-#define GPIOC_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 2))
-#define GPIOD_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 3))
-#define GPIOE_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 4))
-#define GPIOF_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 5))
-#define GPIOG_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 6))
-#define GPIOH_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 7))
-#define GPIOI_PCLK_DI() (RCC->AHB1ENR &= ~(1U << 8))
-
-
-/**
- * Name:                            SPIx_PLCK_EN (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Name:                            SPIx peripheral clock enable (x = 1, 2, 3, ...)
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Enable the clock for SPIx peripheral (x = 1, 2, 3, ...)
@@ -340,8 +487,8 @@ typedef struct {
 
 
 /**
- * Name:                            SPIx peripheral clock enable (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Name:                            SPIx peripheral clock disable (x = 1, 2, 3, ...)
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               Disable the clock for SPIx peripheral (x = 1, 2, 3, ...)
@@ -352,88 +499,8 @@ typedef struct {
 
 
 /**
- * Name:                            SYSCFG peripheral clock enable
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               Enable the clock for SYSCFG peripheral
- */
-#define SYSCFG_PCLK_EN() (RCC->APB2ENR |= (1U << 14))
-
-
-/**
- * Name:                            SYSCFG peripheral clock disable
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               Disable the clock for SYSCFG peripheral
- */
-#define SYSCFG_PCLK_DI() (RCC->APB2ENR &= ~(1U << 14))
-
-
-/**
- * Name:                            Macro IRQ number
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define IRQ_NUMBER_EXTI_0 		6
-#define IRQ_NUMBER_EXTI_1 		7
-#define IRQ_NUMBER_EXTI_2 		8
-#define IRQ_NUMBER_EXTI_3 		9
-#define IRQ_NUMBER_EXTI_4 		10
-#define IRQ_NUMBER_EXTI_9_5 	23
-#define IRQ_NUMBER_EXTI_15_10 	40
-
-
-/**
- * Name:                            Macro NVIC IRQ Priority Number
- * Last reviewed and updated:       2025/06/20
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define NVIC_IRQ_PRIORITY_0 	0
-#define NVIC_IRQ_PRIORITY_1 	1
-#define NVIC_IRQ_PRIORITY_2 	2
-#define NVIC_IRQ_PRIORITY_3 	3
-#define NVIC_IRQ_PRIORITY_4 	4
-#define NVIC_IRQ_PRIORITY_5 	5
-#define NVIC_IRQ_PRIORITY_6 	6
-#define NVIC_IRQ_PRIORITY_7 	7
-#define NVIC_IRQ_PRIORITY_8 	8
-#define NVIC_IRQ_PRIORITY_9 	9
-#define NVIC_IRQ_PRIORITY_10 	10
-#define NVIC_IRQ_PRIORITY_11 	11
-#define NVIC_IRQ_PRIORITY_12 	12
-#define NVIC_IRQ_PRIORITY_13 	13
-#define NVIC_IRQ_PRIORITY_14 	14
-#define NVIC_IRQ_PRIORITY_15 	15
-
-
-/**
- * Name:                            Macro logic
- * Last reviewed and updated:       2025/06/24
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define ENABLE 			1
-#define DISABLE 		0
-#define SET 			1
-#define RESET 			0
-#define HIGH 			1
-#define LOW 			0
-#define FLAG_RESET 		0
-#define FLAG_SET 		1
-#define OFF				0
-#define ON				1
-
-
-/**
  * Name:                            Macros for the bits of the SPIx_CR1 register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -456,7 +523,7 @@ typedef struct {
 
 /**
  * Name:                            Macros for the bits of the SPIx_CR2 register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
@@ -472,63 +539,45 @@ typedef struct {
 
 /**
  * Name:                            Macros for the bits of the SPIx_SR register (x = 1, 2, 3, ...)
- * Last reviewed and updated:       2025/06/20
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define SPI_SR_RXNE 	0		/* Bit 0	RXNE: Receive buffer not empty 	*/
-#define SPI_SR_TXE 		1		/* Bit 1 	TXE: Transmit buffer empty		*/
-#define SPI_SR_CHSIDE	2		/* Bit 2 	CHSIDE: Channel side			*/
-#define SPI_SR_UDR 		3		/* Bit 3 	UDR: Underrun flag				*/
-#define SPI_SR_CRCERR	4		/* Bit 4 	CRCERR: CRC error flag			*/
-#define SPI_SR_MODF 	5		/* Bit 5 	MODF: Mode fault				*/
-#define SPI_SR_OVR 		6		/* Bit 6 	OVR: Overrun flag				*/
-#define SPI_SR_BSY 		7		/* Bit 7 	BSY: Busy flag					*/
-#define SPI_SR_FRE 		8		/* Bit 8 	FRE: Frame format error			*/
+#define SPI_SR_RXNE 		0		/* Bit 0	RXNE: Receive buffer not empty 	*/
+#define SPI_SR_TXE 			1		/* Bit 1 	TXE: Transmit buffer empty		*/
+#define SPI_SR_CHSIDE		2		/* Bit 2 	CHSIDE: Channel side			*/
+#define SPI_SR_UDR 			3		/* Bit 3 	UDR: Underrun flag				*/
+#define SPI_SR_CRCERR		4		/* Bit 4 	CRCERR: CRC error flag			*/
+#define SPI_SR_MODF 		5		/* Bit 5 	MODF: Mode fault				*/
+#define SPI_SR_OVR 			6		/* Bit 6 	OVR: Overrun flag				*/
+#define SPI_SR_BSY 			7		/* Bit 7 	BSY: Busy flag					*/
+#define SPI_SR_FRE 			8		/* Bit 8 	FRE: Frame format error			*/
 
+/************************************************** SPI assembly - CLOSE - **************************************************/
+
+
+/************************************************** Common Macro - OPEN - **************************************************/
 
 /**
- * Name:                            Macros for the bits of the RCC_CFGR register
- * Last reviewed and updated:       2025/06/23
+ * Name:                            Common macro
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      None
  * Return type:                     None
  * Brief description:               None
  */
-#define RCC_CFGR_SW				0
-#define RCC_CFGR_SWS			2
-#define RCC_CFGR_HPRE			4
-#define RCC_CFGR_PPRE1			10
-#define RCC_CFGR_PPRE2			13
-#define RCC_CFGR_RTCPRE			16
-#define RCC_CFGR_MCO1			21
-#define RCC_CFGR_I2SSCR			23
-#define RCC_CFGR_MCO1PRE		24
-#define RCC_CFGR_MCO2PRE		27
-#define RCC_CFGR_MCO2			30
+#define ENABLE 			1
+#define DISABLE 		0
+#define SET 			1
+#define RESET 			0
+#define HIGH 			1
+#define LOW 			0
+#define FLAG_RESET 		0
+#define FLAG_SET 		1
+#define OFF				0
+#define ON				1
 
-
-/**
- * Name:                            Macros for the bits of the RCC_CFGR register
- * Last reviewed and updated:       2025/06/23
- * Parameters:                      None
- * Return type:                     None
- * Brief description:               None
- */
-#define RCC_CR_HSION			0
-#define RCC_CR_HSIRDY			1
-#define RCC_CR_HSITRIM			3
-#define RCC_CR_HSICAL			8
-#define RCC_CR_HSEON			16
-#define RCC_CR_HSERDY			17
-#define RCC_CR_HSEBYP			18
-#define RCC_CR_CSSON			19
-#define RCC_CR_PLLON			24
-#define RCC_CR_PLLRDY			25
-#define RCC_CR_PLLI2SON			26
-#define RCC_CR_PLLI2SRDY		27
-#define RCC_CR_PLLSAION			28
-#define RCC_CR_PLLSAIRDY		29
+/************************************************** Common Macro - CLOSE - **************************************************/
 
 
 #include "gpio_driver.h"
