@@ -1,7 +1,7 @@
 /**
- * spi_driver.c
+ * File: spi_driver.c
  *
- * Created on: Jun 20, 2025
+ * Last reviewed and updated: 2025/06/26
  * Author: VanTungDinh
  */
 
