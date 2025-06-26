@@ -1,7 +1,7 @@
 /**
- * gpio_driver.c
+ * File: gpio_driver.c
  *
- * Created on: Jun 20, 2025
+ * Last reviewed and updated: 2025/06/26
  * Author: VanTungDinh
  */
 
@@ -300,7 +300,7 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t ENorDI) {
 
 /**
  * Name:                            GPIO_IRQPriorityConfig
- * Last reviewed and updated:       2025/06/21
+ * Last reviewed and updated:       2025/06/26
  * Parameters:                      1) IRQNumber:		IRQ numbers for each type of interrupt
  * 									2) IRQPriority:		Priority IRQ number for the type of interrupt (0, 1, 2, ..., 15)
  * Return type:                     void
@@ -313,8 +313,8 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority) {
 	uint8_t temp_div = IRQNumber / 4;
 	uint8_t temp_mod = IRQNumber % 4;
 	/* Only the upper 4 bits of a byte are used to store the IRQPriority value */
-	NVIC->IPR[temp_div] &= ~(15U << (temp_mod * 8 + 4));
-	NVIC->IPR[temp_div] |= ((IRQPriority & 15U) << (temp_mod * 8 + 4));
+	NVIC->IPR[temp_div] &= ~(15U << (temp_mod * 8 + NVIC_PRIO_BITS));
+	NVIC->IPR[temp_div] |= ((IRQPriority & 15U) << (temp_mod * 8 + NVIC_PRIO_BITS));
 }
 
 
