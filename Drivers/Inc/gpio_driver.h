@@ -1,7 +1,7 @@
 /**
- * gpio_driver.h
+ * File: gpio_driver.h
  *
- * Created on: Jun 20, 2025
+ * Last reviewed and updated: 2025/06/26
  * Author: VanTungDinh
  */
 
